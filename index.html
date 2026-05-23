@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Casamento de Maria & Wanderlei</title>
+  <meta name="description"
+    content="Temos a honra de convidá-los para a celebração do nosso casamento. Confirme sua presença e confira os detalhes da cerimônia.">
+
+  <!-- Favicon / Meta Tags para Compartilhamento -->
+  <link rel="icon" type="image/png" href="assets/images/flores-topo.png">
+  <meta property="og:title" content="Casamento de Maria & Wanderlei">
+  <meta property="og:description" content="Temos a honra de convidá-los para a celebração do nosso casamento.">
+  <meta property="og:image" content="assets/images/flores-topo.png">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Estilos Personalizados -->
+  <link rel="stylesheet" href="css/styles.css?v=23">
+  <link rel="stylesheet" href="css/envelope.css?v=2">
+</head>
+
+<body class="body-locked">
+
+  <!-- TELA DE ABERTURA (ENVELOPE) -->
+  <div id="envelope-overlay">
+    <div class="envelope-wrapper">
+      <div class="envelope">
+        <div class="flap"></div>
+        <div class="pocket"></div>
+        <div class="letter">
+          <div class="letter-inner">
+            <span class="letter-monogram">M <span class="letter-ampersand">e</span> W</span>
+          </div>
+        </div>
+        <div class="envelope-seal">
+          <i class="fa-solid fa-envelope-open-text"></i>
+        </div>
+      </div>
+      <p class="envelope-instruction">Toque para abrir o convite</p>
+    </div>
+  </div>
+
+  <!-- ÁUDIO DE FUNDO -->
+  <audio id="bg-music" loop preload="auto">
+    <source src="assets/musica/PATRICIA ROMANIA - AMEI VOCÊ - GravadoraNT (youtube).mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Elementos de Flores Fixas (Background Parallax effect) -->
+  <img src="assets/images/flores-topo-alpha.png?v=4" alt="Arranjo de flores no canto superior direito"
+    class="flores-fixed flores-topo" id="flores-topo-img">
+  <img src="assets/images/flores-baixo-alpha.png?v=4" alt="Arranjo de flores no canto inferior esquerdo"
+    class="flores-fixed flores-baixo" id="flores-baixo-img">
+
+  <!-- Conteúdo Principal do Site -->
+  <main class="main-content">
+
+    <!-- SEÇÃO HERO -->
+    <section class="section hero" id="home">
+      <div class="section-container">
+        <span class="hero-subtitle reveal reveal-delay-1">Com a bênção de Deus</span>
+        <h1 class="hero-names reveal reveal-delay-2">
+          <span class="name-left">Maria</span>
+          <span class="ampersand">e</span>
+          <span class="name-right">Wanderlei</span>
+        </h1>
+        <p class="hero-invitation reveal reveal-delay-3">
+          "Temos a honra de convidá-los para a cerimônia de nosso casamento, a realizar-se no dia"
+        </p>
+
+
+        <div class="scroll-indicator">
+          <span>Role para ver mais</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO MENSAGEM / VERSÍCULO -->
+    <section class="section message-section" id="mensagem">
+      <div class="section-container reveal">
+        <div class="message-icon">
+          <i class="fa-solid fa-quote-left"></i>
+        </div>
+        <p class="message-text">
+          "Deus mudou o teu caminho até juntares com o meu e guardou a tua vida separando-a para mim. Para onde fores,
+          irei; onde tu repousares, repousarei. Teu Deus será o meu Deus. Teu caminho o meu será."
+        </p>
+        <span class="message-verse">Rute 1:16-18</span>
+        <hr class="divider">
+      </div>
+    </section>
+
+    <!-- SEÇÃO DATA & CONTAGEM REGRESSIVA -->
+    <section class="section date-section" id="data">
+      <div class="section-container reveal">
+        <span class="date-label">A Cerimônia</span>
+
+        <div class="date-grid">
+          <div class="day-name">Domingo</div>
+          <div class="day-number">28</div>
+          <div class="time">16:30h</div>
+        </div>
+
+        <div class="date-month">Junho</div>
+        <div class="date-year">2026</div>
+
+        <hr class="divider">
+      </div>
+    </section>
+
+    <!-- CONTAGEM REGRESSIVA -->
+    <section class="section countdown-section">
+      <div class="section-container reveal">
+        <h2 class="countdown-title">Contando os Dias...</h2>
+
+        <div class="countdown-grid">
+          <div class="countdown-item">
+            <span class="countdown-number" id="countdown-days">00</span>
+            <span class="countdown-label">Dias</span>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="countdown-hours">00</span>
+            <span class="countdown-label">Horas</span>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="countdown-minutes">00</span>
+            <span class="countdown-label">Minutos</span>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="countdown-seconds">00</span>
+            <span class="countdown-label">Segundos</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO ÍCONES DE AÇÃO (ATALHOS) -->
+    <section class="section actions-section">
+      <div class="section-container reveal">
+        <span class="actions-label">Menu de Acesso Rápido</span>
+
+        <div class="actions-grid">
+          <a href="#local" class="action-item" aria-label="Ir para localização da cerimônia">
+            <div class="action-icon-circle">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <span class="action-text">Localização</span>
+          </a>
+
+          <a href="#presentes" class="action-item" aria-label="Ir para lista de presentes">
+            <div class="action-icon-circle">
+              <i class="fa-solid fa-gift"></i>
+            </div>
+            <span class="action-text">Presentes</span>
+          </a>
+
+          <a href="#rsvp" class="action-item" aria-label="Ir para confirmação de presença">
+            <div class="action-icon-circle">
+              <i class="fa-solid fa-globe"></i>
+            </div>
+            <span class="action-text">Confirmação</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO LOCAL -->
+    <section class="section venue-section" id="local">
+      <div class="section-container reveal">
+        <span class="venue-label">Como Chegar</span>
+        <div class="venue-icon">
+          <i class="fa-solid fa-map-location-dot"></i>
+        </div>
+        <h2 class="venue-name">Igreja Adventista do Sétimo Dia<br><span style="font-size: 1.2rem;"></span></h2>
+        <p class="venue-address">
+          R. Mal. Floriano Peixoto, 768<br>
+          Zona 7, Maringá - PR, 87030-050
+        </p>
+
+        <!-- Botão com Link para o Google Maps -->
+        <a href="https://www.google.com/maps/search/?api=1&query=Igreja+Adventista+do+Setimo+dia+Vila+7+Maringa+PR"
+          target="_blank" rel="noopener noreferrer" class="btn btn-marsala" id="btn-maps">
+          <i class="fa-solid fa-map-pin"></i>
+          Ver no Google Maps
+        </a>
+      </div>
+    </section>
+
+    <!-- SEÇÃO PRESENTES -->
+    <section class="section gifts-section" id="presentes">
+      <div class="section-container reveal">
+        <span class="gifts-label">Mimos e Carinho</span>
+        <div class="gifts-icon">
+          <i class="fa-solid fa-gift"></i>
+        </div>
+        <h2 class="gifts-title">Lista de Presentes</h2>
+        <p class="gifts-text">
+          Sua presença é o maior presente para nós! Abaixo listamos algumas sugestões de mimos para o nosso novo lar:
+        </p>
+
+        <div class="gifts-single-block">
+          <div class="gifts-grid-2col">
+
+            <!-- Coluna Esquerda -->
+            <div class="gifts-column">
+              <h3 class="category-title">Cozinha</h3>
+              <ul class="gift-items">
+                <li>Panela grande vermelha</li>
+                <li>Panela média vermelha</li>
+                <li>Panela pequena vermelha</li>
+                <li>Panela de pressão vermelha</li>
+                <li>Frigideira antiaderente vermelha</li>
+                <li>Espremedor de laranja</li>
+                <li>Sanduicheira</li>
+                <li>Microondas</li>
+                <li>Kit Jarra de suco</li>
+                <li>Cortina cozinha</li>
+                <li>Pote de vidro</li>
+                <li>Pote de tempero</li>
+                <li>Kit de bacia</li>
+                <li>Kit de colheres de silicone</li>
+              </ul>
+            </div>
+
+            <!-- Coluna Direita -->
+            <div class="gifts-column">
+              <h3 class="category-title">Banheiro</h3>
+              <ul class="gift-items">
+                <li>Lixinho</li>
+                <li>Jogo de toalha</li>
+                <li>Tapete</li>
+                <li>Kit acessório de pia de banheiro</li>
+              </ul>
+
+              <h3 class="category-title">Quarto</h3>
+              <ul class="gift-items">
+                <li>Jogo de lençol</li>
+                <li>Edredom</li>
+                <li>Capa impermeável pra colchão</li>
+                <li>Capa impermeável pra travesseiro</li>
+                <li>Cortina para quarto</li>
+              </ul>
+
+              <h3 class="category-title">Sala</h3>
+              <ul class="gift-items">
+                <li>Sofá</li>
+                <li>Televisão</li>
+                <li>Tapete</li>
+                <li>Cortina</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Seção PIX -->
+        <div class="pix-container">
+          <h3 class="category-title" style="text-align: center; border-bottom: none; margin-bottom: 5px;">Opção em Pix
+          </h3>
+          <p class="pix-text">Caso desejem nos presentear de uma forma especial, recebemos esse gesto com muito carinho.
+          </p>
+          <img src="assets/images/QR_Code.png" alt="QR Code Pix" class="pix-qr">
+
+          <div class="pix-key-box">
+            <span class="pix-key" id="pix-key-text">06ba01da-bbf6-4d9c-928d-870fa198413d</span>
+            <button class="btn-copy" id="btn-copy-pix" title="Copiar Chave Pix">
+              <i class="fa-regular fa-copy"></i> Copiar
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO RSVP -->
+    <section class="section rsvp-section" id="rsvp">
+      <div class="section-container reveal">
+        <span class="rsvp-label">Confirmação</span>
+        <div class="rsvp-icon">
+          <i class="fa-solid fa-calendar-check"></i>
+        </div>
+        <h2 class="rsvp-title">Sua Presença é Especial!</h2>
+        <p class="rsvp-text">
+          Ter você conosco nesse dia inesquecível será uma grande alegria! Para organizarmos cada detalhe com o carinho
+          que você merece, confirme sua presença abaixo.
+        </p>
+
+        <!-- Botão com Link para o WhatsApp -->
+        <a href="https://wa.me/554491252765?text=Ol%C3%A1!%20Gostaria%20de%20confirmar%20minha%20presen%C3%A7a%20no%20casamento%20de%20Maria%20e%20Wanderlei."
+          target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" id="btn-rsvp">
+          <i class="fa-brands fa-whatsapp"></i>
+          Confirmar presença via WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <!-- SEÇÃO RODAPÉ -->
+    <footer class="footer">
+      <div class="section-container reveal">
+        <p class="footer-presence">Contamos com sua presença!</p>
+        <p class="footer-names">Maria <span class="ampersand">e</span> Wanderlei</p>
+        <div class="footer-heart">
+          <i class="fa-solid fa-heart"></i>
+        </div>
+        <p class="footer-date">28.06.2026</p>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Scripts Personalizados -->
+  <script src="js/main.js"></script>
+</body>
+
+</html>

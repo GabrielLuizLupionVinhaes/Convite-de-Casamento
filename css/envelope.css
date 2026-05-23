@@ -1,0 +1,185 @@
+/* ===================== ENVELOPE OVERLAY ===================== */
+
+/* Bloqueio de rolagem enquanto o envelope não for aberto */
+body.body-locked {
+  overflow: hidden;
+  height: 100vh;
+}
+
+#envelope-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background-color: var(--creamy);
+  background-image: url('../assets/images/fundo-watercolor.jpeg');
+  background-size: cover;
+  background-position: center;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 1.5s ease-in-out, visibility 1.5s;
+}
+
+.envelope-wrapper {
+  position: relative;
+  width: 320px;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+.envelope-wrapper:hover {
+  transform: scale(1.02);
+}
+
+.envelope {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--marsala);
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  perspective: 1200px;
+}
+
+/* O fundo em V (pocket) */
+.pocket {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--marsala-soft), var(--marsala));
+  border-radius: 0 0 4px 4px;
+  clip-path: polygon(0 0, 50% 50%, 100% 0, 100% 100%, 0 100%);
+  z-index: 3;
+}
+
+/* A aba de cima */
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: var(--marsala);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top;
+  z-index: 4;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* O selo */
+.envelope-seal {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--gold), #96742b);
+  border-radius: 50%;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.2rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  transition: opacity 0.4s ease;
+}
+
+/* O Convite dentro */
+.letter {
+  position: absolute;
+  top: 10px;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  background: var(--white);
+  z-index: 2;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.4s; /* Espera a aba abrir um pouco antes de subir */
+}
+
+.letter-inner {
+  border: 1px solid var(--gold);
+  width: 85%;
+  height: 85%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../assets/images/fundo-watercolor.jpeg');
+  background-size: cover;
+  background-position: center;
+}
+
+.letter-monogram {
+  font-family: var(--font-script);
+  font-size: 3rem;
+  color: var(--marsala);
+  letter-spacing: 5px; /* Adiciona espaçamento entre as letras */
+}
+
+.letter-ampersand {
+  font-family: var(--font-script);
+  color: var(--gold);
+  font-size: 2.2rem;
+  margin: 0 5px;
+}
+
+.envelope-instruction {
+  position: absolute;
+  bottom: -40px;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  animation: pulse 2s infinite;
+  transition: opacity 0.3s ease;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.7; }
+}
+
+/* ===================== ESTADOS ANIMADOS (.open) ===================== */
+
+.envelope-wrapper.open .flap {
+  transform: rotateX(180deg);
+  z-index: 1; /* Aba vai para trás da carta */
+}
+
+.envelope-wrapper.open .envelope-seal {
+  opacity: 0;
+}
+
+.envelope-wrapper.open .letter {
+  transform: translateY(-60px);
+  z-index: 4; /* Passa por cima de tudo para dar sensação de sair */
+}
+
+.envelope-wrapper.open .envelope-instruction {
+  opacity: 0;
+}
