@@ -300,7 +300,8 @@ ul, ol {
   letter-spacing: 5px;
   text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: 20px;
+  margin-bottom: 40px; /* Aumentado a pedido da noiva */
+  display: block;
 }
 
 .date-grid {
@@ -566,7 +567,8 @@ ul, ol {
   letter-spacing: 5px;
   text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: 32px;
+  margin-bottom: 50px; /* Aumentado a pedido da noiva */
+  display: block;
 }
 
 .actions-grid {
